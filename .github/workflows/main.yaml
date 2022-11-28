@@ -40,7 +40,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.1.1
         with:
-          context: .
+          context: backend/
+          file: backend/dockerfile
           push: true
           tags: fatihbe25/todo-app-backend:latest
 
