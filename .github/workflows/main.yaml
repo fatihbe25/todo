@@ -25,7 +25,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Setup Maven
-        run: stCarolas/setup-maven@v4.4
+        uses: stCarolas/setup-maven@v4.4
         with:
           maven-version: 3.8.6
       
