@@ -9,7 +9,6 @@ on:
     paths:
       - backend/**
 jobs:
- # Backend folder job.
   backend:
     runs-on: ubuntu-latest
     defaults:
