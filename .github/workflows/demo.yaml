@@ -22,7 +22,8 @@ jobs:
         with:
           script: |
             const sha = context.sha.substring(0,10)
-            const docker_image =  `fatihbe25\\todo-app-backend_prv:${sha}`
+            const docker_image =  `fatihbe25\todo-app-backend_prv:${sha}`
+            docker_image="${docker_image//$'\t'/'%09'}"
             core.exportVariable('DOCKER_REGISTRY_IMAGE_PATH',docker_image);
       
       - name: Show docker image path 
