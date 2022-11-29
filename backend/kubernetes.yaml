@@ -15,7 +15,10 @@ spec:
     spec:
       containers:
       - name: todo-app-deployment
-        image: fatihbe25/todo-app-backend:latest
+        image: fatihbe25/todo-app-backend_prv:latest
+        imagePullSecrets:
+        - name: regcred
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
 ---
