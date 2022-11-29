@@ -31,16 +31,16 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-      - name: Assign docker registry image path
+      - name: Assign docker registry image tag
         uses: actions/github-script@v6
         with:
           script: |
             const sha = context.sha.substring(0,10)
-            const docker_image =  `fatihbe25\\todo-app-backend_prv:${sha}`
-            core.exportVariable('DOCKER_REGISTRY_IMAGE_PATH',docker_image);
+           
+            core.exportVariable('DOCKER_IMAGE_TAG',sha);
       
       - name: Show docker image path 
-        run: echo "docker image => ${{ env.DOCKER_REGISTRY_IMAGE_PATH }}"
+        run: echo "docker image => fatihbe25/todo-app-backend_prv:${{ env.DOCKER_IMAGE_TAG }}"
 
 
       - name: Set up Docker Buildx
@@ -58,7 +58,7 @@ jobs:
           context: backend/
           file: backend/dockerfile
           push: true
-          tags: ${{ env.DOCKER_REGISTRY_IMAGE_PATH }}
+          tags: fatihbe25/todo-app-backend_prv:${{ env.DOCKER_IMAGE_TAG }}
 
       - name: Kubernetes Set Context
         uses: Azure/k8s-set-context@v3.0
@@ -70,4 +70,4 @@ jobs:
         with:
           namespace: fatihbe
           manifests: backend/kubernetes.yaml
-          images: ${{ env.DOCKER_REGISTRY_IMAGE_PATH }}
+          images: fatihbe25/todo-app-backend_prv:${{ env.DOCKER_IMAGE_TAG }}
