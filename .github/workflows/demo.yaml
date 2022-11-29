@@ -19,5 +19,5 @@ jobs:
         
       - name: Show GitHub context
         env:
-          DOCKER_VERSION: ${{ github.GITHUB_SHA }}
+          DOCKER_VERSION: ${{ github.sha }}
         run: echo "docker image => fatihbe25\todo-app-backend_prv:$DOCKER_VERSION"
