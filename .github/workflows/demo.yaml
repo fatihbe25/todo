@@ -27,5 +27,5 @@ jobs:
             core.exportVariable('GITHUB_SHA_SHORT',sha);
       
       - name: Show docker image path 
-        run: echo "docker image => fatihbe25\todo-app-backend_prv:${{ GITHUB_SHA_SHORT }}"
+        run: echo "docker image => fatihbe25\todo-app-backend_prv:${{ env.GITHUB_SHA_SHORT }}"
       
