@@ -20,10 +20,9 @@ jobs:
       - name: Assign docker registry image path
         uses: actions/github-script@v3
         with:
-          script:
+          script: |
             const sha = context.sha.substring(0,10)
             const docker_image =  `fatihbe25\todo-app-backend_prv:${sha}`
-            
             core.exportVariable('DOCKER_REGISTRY_IMAGE_PATH',docker_image);
       
       - name: Show docker image path 
