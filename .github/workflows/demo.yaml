@@ -10,8 +10,13 @@ on:
 jobs:
   backend:
     runs-on: ubuntu-latest
-   
+    defaults:
+      run:
+        working-directory: backend
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
       - name: Set docker image version
         run: 
           calculatedSha=$(git rev-parse --short ${{ github.sha }})
