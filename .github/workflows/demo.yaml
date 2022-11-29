@@ -25,4 +25,4 @@ jobs:
           
       - name: Show docker version 
         run:
-          echo  "fatihbe25/todo-app-backend_prv:$DOCKER_IMAGE_VERSION"
+          echo  "fatihbe25/todo-app-backend_prv:${{env.DOCKER_IMAGE_VERSION}}"
