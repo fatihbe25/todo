@@ -10,9 +10,7 @@ on:
 jobs:
   backend:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
+   
     steps:
       - name: Set docker image version
         run: 
