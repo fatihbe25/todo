@@ -1,4 +1,4 @@
-name: CI / CD
+name: env_var_assgn
 
 on:
   pull_request:
