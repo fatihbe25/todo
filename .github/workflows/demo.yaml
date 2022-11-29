@@ -22,6 +22,7 @@ jobs:
         with:
           script:
             const sha = context.sha.substring(0,10)
+            
             core.exportVariable('GITHUB_SHA_SHORT',sha);
       
       - name: Show docker image path 
