@@ -46,7 +46,7 @@ jobs:
           context: backend/
           file: backend/dockerfile
           push: true
-          tags: fatihbe25/todo-app-backend:latest
+          tags: fatihbe25/todo-app-backend_prv:latest
 
       - name: Kubernetes Set Context
         uses: Azure/k8s-set-context@v3.0
