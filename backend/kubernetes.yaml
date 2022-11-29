@@ -16,7 +16,7 @@ spec:
         hostNetwork: false
         containers:
         - name: todo-app-deployment
-          image: $(DOCKER_REGISTRY_IMAGE_PATH)
+          image: fatihbe25/todo-app-backend_prv:$(DOCKER_IMAGE_TAG)
           imagePullPolicy: Always
           ports:
           - containerPort: 8080
