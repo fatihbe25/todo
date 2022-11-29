@@ -1,0 +1,25 @@
+name: CI / CD
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      -  development
+   
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Set docker image version
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "::set-output name=short_sha::$calculatedSha"|
+        env: 
+          DOCKER_IMAGE_VERSION:$calculatedSha
+      - name: Show docker version 
+          run:
+            echo  "fatihbe25/todo-app-backend_prv:$DOCKER_IMAGE_VERSION"
