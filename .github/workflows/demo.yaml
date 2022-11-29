@@ -17,12 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Set docker image version
-        run: 
-          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+      - name: Show GitHub context
         env:
-          DOCKER_IMAGE_VERSION: $calculatedSha
-          
-      - name: Show docker version 
-        run:
-          echo  "fatihbe25/todo-app-backend_prv:${{env.DOCKER_IMAGE_VERSION}}"
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
