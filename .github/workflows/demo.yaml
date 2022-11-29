@@ -17,15 +17,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Assign docker registry image path
+      - name: Assign docker registry image tag
         uses: actions/github-script@v6
         with:
           script: |
             const sha = context.sha.substring(0,10)
-            const docker_image =  `fatihbe25\todo-app-backend_prv:${sha}`
-            docker_image="${docker_image//$'\t'/'%09'}"
-            core.exportVariable('DOCKER_REGISTRY_IMAGE_PATH',docker_image);
+           
+            core.exportVariable('DOCKER_IMAGE_TAG',sha);
       
       - name: Show docker image path 
-        run: echo "docker image => ${{ env.DOCKER_REGISTRY_IMAGE_PATH }}"
+        run: echo "docker image => fatihbe25/todo-app-backend_prv:${{ env.DOCKER_IMAGE_TAG }}"
       
