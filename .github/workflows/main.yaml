@@ -58,4 +58,4 @@ jobs:
         with:
           namespace: fatihbe
           manifests: backend/kubernetes.yaml
-          images: fatihbe25/todo-app-backend:latest
+          images: fatihbe25/todo-app-backend_prv:latest
