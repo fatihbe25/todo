@@ -17,7 +17,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Show GitHub context
-        env:
-          DOCKER_VERSION: ${{ github.sha }}
-        run: echo "docker image => fatihbe25\todo-app-backend_prv:$DOCKER_VERSION"
+      - name: Variables
+        id: variables
+        uses: actions/github-script@v3
+        with:
+          script:
+            const sha = context.sha.substring(0,10)
+            
+            core.exportVariable('GITHUB_SHA_SHORT',sha);
+      
+      - name: Show docker image path 
+        run: echo "docker image => fatihbe25\todo-app-backend_prv:${{ GITHUB_SHA_SHORT }}"
+      
