@@ -57,5 +57,5 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           namespace: fatihbe
-          manifests: backend/kubernetes.yml
+          manifests: kubernetes.yaml
           images: fatihbe25/todo-app-backend:latest
