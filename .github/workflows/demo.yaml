@@ -21,8 +21,8 @@ jobs:
         uses: actions/github-script@v3
         with:
           script:
-            const sha = context.sha.substring(0,10);
-            const docker_image = 'fatihbe25\todo-app-backend_prv:${sha}';
+            const sha = context.sha.substring(0,10)
+            const docker_image =  `fatihbe25\todo-app-backend_prv:${sha}`
             
             core.exportVariable('DOCKER_REGISTRY_IMAGE_PATH',docker_image);
       
