@@ -10,6 +10,6 @@ public class DefaultController {
     
     @GetMapping("/")
     public String defaultString(){
-        return "It works. *** Spring boot Rest Api *** ";
+        return "It works. *** Spring boot Rest Api *** 2022";
     }
 }
