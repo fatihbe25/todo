@@ -13,14 +13,18 @@ spec:
       labels:
         app: todo-app-deployment
     spec:
-      containers:
-      - name: todo-app-deployment
-        image: fatihbe25/todo-app-backend_prv:latest
+        hostNetwork: false
+        containers:
+        - name: todo-app-deployment
+          image: fatihbe25/todo-app-backend_prv:latest
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+          resources:
+            limits: {}
         imagePullSecrets:
         - name: regcred
-        imagePullPolicy: "Always"
-        ports:
-        - containerPort: 8080
+   
 ---
 apiVersion: v1
 kind: Service
